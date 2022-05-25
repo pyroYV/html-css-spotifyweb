@@ -2,16 +2,30 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    outline: solid green;
+    /* outline: solid green; */
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
 }
 .flex{
     display: flex;
 }
 
-main{
-    /* height: calc(100vh -  footer ); */
-    height: calc(100vh - 150px); 
-   }
+
+:root{
+    --spotigreen: #adfa2e;
+    --bg-blue: #141922;
+    --f-grey:#282828;
+    --text:#6d6f74;
+}
+ul{
+    list-style: none;
+}
+li{
+    color: var(--text);
+}
+/* °°°°°°°°°°°°°°°°°°°°°°°
+        Struttura
+°°°°°°°°°°°°°°°°°°°°°°° */
 header{
     height: 100px;
     background-color: rgba(0, 0, 0, 0.8);
@@ -21,10 +35,13 @@ header{
     left: 0;
 }
 
-.hero{
+main{
     flex-flow: row nowrap;
+    height: calc(100vh - 150px); 
 }
-
+/* °°°°°°°°°°°°°°°°°°°°°°°
+        Side
+°°°°°°°°°°°°°°°°°°°°°°° */
 #sidebar{
     width: 200px;
     height: calc(100vh - 150px);
@@ -32,23 +49,75 @@ header{
     overflow: hidden;
 
 }
-.space{
-    background-color: bisque;
+/* °°°°°°°°°°°°°°°°°°°°°°°
+        Content
+°°°°°°°°°°°°°°°°°°°°°°° */
+.wrapper{
+    background-color: var(--bg-blue);
     width: 100%;
     overflow: auto;
+    overflow-x: hidden;
+}
+
+.hero{
+    padding: 2rem;
+}
+.category{
+    padding: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}   
+
+.category li{
+    padding: 10px;
+}
+.recently-albums{
+    gap: 25px;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+.album-card{
+    width: calc(100% / 6 - 25px);
+    flex-flow: column wrap;
+    text-align: center;
+
     
 }
 
-.box{
-    height: 300px;
-    width: ;
-    background-color: tomato;
-
+.album-card img{
+    width: 100%;
+}
+.album-card h3{
+    color: whitesmoke;
 }
 
+.album-card h3, .album-card span{
+    margin-top: 1rem;
+}
+
+
+
+
+
+/* °°°°°°°°°°°°°°°°°°°°°°°
+        Foot
+°°°°°°°°°°°°°°°°°°°°°°° */
 footer{
     height: 150px;
     background: darkcyan;
     width: 100%;
 }
+@media screen and (max-width: 878px){ 
+    .album-card{
+        width: calc(100% / 4 - 25px);
+    }
+    
+}
 
+@media screen and (max-width: 639px){ 
+    .album-card{
+        width: calc(100% / 2 - 25px);
+
+    }
+    
+}
