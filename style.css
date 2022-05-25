@@ -53,7 +53,25 @@ main{
     height: calc(100vh - 150px);
     background-color: aqua;
     overflow: hidden;
+    padding: 1rem;
+}
 
+#sidebar .logo .small{
+    display: none;
+}
+
+.logo{
+    align-items: center;
+}
+
+.sidemenu{
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;
+}
+.sidemenu img{
+    width: 10%;
 }
 /* °°°°°°°°°°°°°°°°°°°°°°°
         Content
