@@ -49,9 +49,9 @@ main{
         Side
 °°°°°°°°°°°°°°°°°°°°°°° */
 #sidebar{
-    width: 200px;
+    width: 300px;
     height: calc(100vh - 150px);
-    background-color: aqua;
+    background-color: black;
     overflow: hidden;
     padding: 1rem;
 }
@@ -59,19 +59,57 @@ main{
 #sidebar .logo .small{
     display: none;
 }
-
 .logo{
-    align-items: center;
-}
-
-.sidemenu{
-    flex-flow: row wrap;
     justify-content: flex-start;
     align-items: center;
-    flex-grow: 1;
+}
+.logo .big{
+    height: 50px;
+}
+
+.side-spacer{
+    height: calc(100% - 50px);
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+
+.side-item{
+    height: 40px;
+    align-items: center;
 }
 .sidemenu img{
-    width: 10%;
+    width: 30px;
+}
+
+.new-playlist{
+    align-items: center;
+}
+.new-playlist i{
+    margin-right: 0.5rem;
+}
+
+.playlist-list{
+    margin-top: 0.5rem;
+    overflow: scroll;
+    min-height: 150px;
+    height: 250px;
+}
+
+.playlist-list li{
+    margin-bottom: 1rem;
+}
+
+.profile .side-item img{
+    width: 20px;
+    margin-right: 0.5rem;
+}
+.prof-pic{
+    border-top: 3px solid var(--f-grey);
+}
+.prof-pic img{
+    width: 30px;
+    background-color: var(--f-grey);
+    border-radius: 50%;
 }
 /* °°°°°°°°°°°°°°°°°°°°°°°
         Content
