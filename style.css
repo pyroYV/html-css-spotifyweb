@@ -23,6 +23,12 @@ ul{
 li{
     color: var(--text);
 }
+
+h2{
+    color: whitesmoke;
+    margin-bottom: 0.5rem
+}
+
 /* °°°°°°°°°°°°°°°°°°°°°°°
         Struttura
 °°°°°°°°°°°°°°°°°°°°°°° */
@@ -62,26 +68,31 @@ main{
 .hero{
     padding: 2rem;
 }
+
+.hero section{
+    margin-bottom: 4rem;
+}
 .category{
     padding: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-around;
 }   
 
+.category ul{
+    flex-wrap: wrap;
+}
 .category li{
     padding: 10px;
 }
-.recently-albums{
+.slide-albums{
     gap: 25px;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
+    margin-top: 2rem;
 }
+
 .album-card{
     width: calc(100% / 6 - 25px);
     flex-flow: column wrap;
     text-align: center;
-
-    
 }
 
 .album-card img{
@@ -91,12 +102,13 @@ main{
     color: whitesmoke;
 }
 
-.album-card h3, .album-card span{
-    margin-top: 1rem;
+.album-card h3{
+    margin: 1rem 0;
 }
 
-
-
+.artist .img-container img{
+    border-radius: 50%;
+}
 
 
 /* °°°°°°°°°°°°°°°°°°°°°°°
@@ -107,6 +119,11 @@ footer{
     background: darkcyan;
     width: 100%;
 }
+
+
+/* °°°°°°°°°°°°°°°°°°°°°°°
+        media query
+°°°°°°°°°°°°°°°°°°°°°°° */
 @media screen and (max-width: 878px){ 
     .album-card{
         width: calc(100% / 4 - 25px);
