@@ -93,6 +93,7 @@ main{
     overflow: scroll;
     min-height: 150px;
     height: 250px;
+    overflow-x: hidden;
 }
 
 .playlist-list li{
@@ -193,4 +194,33 @@ footer{
 
     }
     
+}
+
+@media screen and (max-width: 552px){
+
+    #sidebar{
+        width: 75px
+    }
+    #sidebar .big{
+        display: none;
+    }
+    #sidebar .small{
+        display: block;
+    }
+    #sidebar .logo .small{
+        display: block;
+        height: 35px;
+        margin-bottom: 1rem;
+    }
+    .side-spacer{
+        gap: 23rem;
+    }
+    .prof-pic{
+        border-top: none;
+    }
+    .playlist{
+        display: none;
+    }
+
+
 }
