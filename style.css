@@ -46,6 +46,28 @@ main{
     height: calc(100vh - 100px); 
 }
 /* °°°°°°°°°°°°°°°°°°°°°°°
+        header
+°°°°°°°°°°°°°°°°°°°°°°° */
+.header-cont{
+    height: 100%;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+}
+
+.upgrade{
+    color: whitesmoke;
+    border-radius: 30px;
+    border: solid whitesmoke;
+    padding: 10px 25px;
+    transition: 1s;
+}
+
+.upgrade:hover {
+    scale: 1.1;
+}
+/* °°°°°°°°°°°°°°°°°°°°°°°
         Side
 °°°°°°°°°°°°°°°°°°°°°°° */
 #sidebar{
@@ -68,19 +90,45 @@ main{
 }
 
 .side-spacer{
-    height: calc(100% - 50px);
+    height: calc(100% - 50px - 100px);
     flex-flow: column nowrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    margin-top: 2rem;
+    overflow: hidden;
 }
 
 .side-item{
     height: 40px;
+    padding: 2px;
     align-items: center;
+    position: relative;
 }
 .sidemenu img{
     width: 30px;
 }
 
+.side-item::after{
+    content: "";
+    width: 3px;
+    height: 80%;
+    background-color: var(--spotigreen);
+    position: absolute;
+    left: -1%;
+    bottom: 10%;
+    opacity: 0%;
+}
+
+.side-item:hover .icon-text{
+    color: whitesmoke;
+}
+.side-item:hover::after{
+    opacity: 100%;
+}
+.playlist{
+    margin-top: 2rem;
+    flex-grow: 1;
+    max-height: 65%;
+}
 .new-playlist{
     align-items: center;
 }
@@ -94,12 +142,15 @@ main{
     min-height: 150px;
     height: 250px;
     overflow-x: hidden;
+    
 }
 
 .playlist-list li{
     margin-bottom: 1rem;
 }
-
+.profile{
+    height: 80px;
+}
 .profile .side-item img{
     width: 20px;
     margin-right: 0.5rem;
@@ -139,7 +190,27 @@ main{
 }
 .category li{
     padding: 10px;
+    position: relative;
 }
+
+.category li::after{
+    content: "";
+    width: 50%;
+    height: 3px;
+    background-color: var(--spotigreen);
+    position: absolute;
+    left: 25%;
+    bottom: 0;
+    opacity: 0%;
+}
+
+.category li:hover{
+    color: whitesmoke;
+}
+.category li:hover::after{
+    opacity: 100%;
+}
+
 .slide-albums{
     gap: 25px;
     flex-wrap: wrap;
@@ -151,7 +222,9 @@ main{
     flex-flow: column wrap;
     text-align: center;
 }
-
+.img-container{
+    position: relative;
+}
 .album-card img{
     width: 100%;
 }
@@ -167,7 +240,25 @@ main{
     border-radius: 50%;
 }
 
+.play-hover{
+    display: none;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 
+.album-card:hover .play-hover{
+    display: flex;
+}
+
+.artist .play-hover{
+    border-radius: 50%;
+}
 /* °°°°°°°°°°°°°°°°°°°°°°°
         Foot
 °°°°°°°°°°°°°°°°°°°°°°° */
@@ -187,7 +278,7 @@ footer{
     flex-flow: row nowrap;
     /* justify-content: space-between; */
     align-items: center;
-    flex-basis: 20%;
+    width:300px;
 
 }
 .f-left img{
@@ -221,9 +312,7 @@ footer{
 
 .controls{
     align-items: center;
-    justify-content: center;
-    /* flex-basis: 50%; */
-    
+    justify-content: center;    
 }
 
 .controls i{
@@ -235,6 +324,10 @@ footer{
     border: solid whitesmoke;
     border-radius: 50%;
     padding: 5px;
+
+}
+.circled:hover{
+    scale: 1.2;
 }
 .progress{
     width: 80%;
@@ -244,9 +337,36 @@ footer{
 .progressbar{
     width: 100%;
     height: 5px;
-    background-color: whitesmoke;
+    background-color: #585858;
     border-radius: 3px;
     position: relative;
+}
+
+.progress-current{
+    position: absolute;
+    left: 0%;
+    width: 30%;
+    height: 5px;
+    border-radius: 3px;
+    background-color: whitesmoke;
+
+}
+.ball{
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    right: 0;
+    background-color: white;
+    border-radius: 50%;
+    bottom: -5px;
+    display: none;
+}
+
+.progressbar:hover .progress-current{
+    background-color: var(--spotigreen);
+}
+.progressbar:hover .ball{
+    display: block;
 }
 
 .progressbar::before{
@@ -255,6 +375,7 @@ footer{
     position: absolute;
     left: -50px;
     top: -7px;
+    font-size: 12px;
 }
 
 .progressbar::after{
@@ -263,38 +384,56 @@ footer{
     position: absolute;
     right: -50px;
     top: -7px;
+    font-size: 12px;
 }
 
 .f-right{
-    flex-basis: 25%;
+    width: 300px;
     align-items: center;
     justify-content: flex-end;
+    gap: 20px;
 
 }
 .f-right i{
     color: whitesmoke;
-    margin: 1rem;
 }
     
 .volumebar{
     width: 50%;
     height: 5px;
-    background-color: whitesmoke;
+    background-color: #585858;
     border-radius: 3px;
-    
+    position: relative;
+}
+
+.volumebar:hover .progress-current{
+    background-color: var(--spotigreen);
+}
+.volumebar:hover .ball{
+    display: block;
 }
 
 /* °°°°°°°°°°°°°°°°°°°°°°°
         media query
 °°°°°°°°°°°°°°°°°°°°°°° */
-@media screen and (max-width: 878px){ 
+@media screen and (max-width: 1100px){ 
     .album-card{
         width: calc(100% / 4 - 25px);
     }
     
 }
 
-@media screen and (max-width: 639px){ 
+@media screen and (max-width: 840px){ 
+.f-left{
+    width: 10%;
+    }  
+.f-right{
+    width: 10%;
+    }  
+}
+
+
+@media screen and (max-width: 700px){ 
     .album-card{
         width: calc(100% / 2 - 25px);
 
@@ -302,7 +441,7 @@ footer{
     
 }
 
-@media screen and (max-width: 552px){
+@media screen and (max-width: 600px){
 
     #sidebar{
         width: 75px
@@ -328,5 +467,18 @@ footer{
         display: none;
     }
 
-
+    .f-left img{
+        width: 25px;
+        margin-right: 1rem;
+    }
+    .f-left-icons{
+        margin-left: 0.5rem;
+    }
+    .controls i{
+        color: whitesmoke;
+        margin:0.25rem;
+    }
+    .progress{
+        height: 1rem;
+    }
 }
